@@ -23,8 +23,6 @@ export default class App extends Component {
     };
   }
 
-  replacePic = 'https://via.placeholder.com/300.png/09f/fff'
-
   componentDidMount = async () => {
     try {
       const response = await fetch(`http://api.tvmaze.com/search/shows?q=${this.state.filmName}`);
@@ -70,7 +68,7 @@ export default class App extends Component {
                 <View key={index}>
                   <Image 
                     style={styles.image} 
-                    source={{uri: movies?.show?.image?.medium ?? this.replacePic }} 
+                    source={{uri: movies?.show?.image?.medium} ?? require('./components/placeholder.png') } 
                   />
                   <Text style={styles.filmName} >{movies.show.name}</Text>
                 </View>
